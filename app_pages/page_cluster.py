@@ -10,11 +10,11 @@ def page_cluster_body():
     # load cluster analysis files and pipeline
     version = 'v1'
     cluster_pipe = load_pkl_file(
-        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
+        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/v1/cluster_pipeline.pkl")
     cluster_silhouette = plt.imread(
-        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/{version}/clusters_silhouette.png")
+        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/v1/clusters_silhouette.png")
     features_to_cluster = plt.imread(
-        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/{version}/features_define_cluster.png")
+        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/v1/features_define_cluster.png")
     heatmapCorr = plt.imread(
         f"/workspace/Housing-market-analysis./images/heatmapCorr.png"
         )
@@ -22,8 +22,8 @@ def page_cluster_body():
         f"/workspace/Housing-market-analysis./images/numerical_plot.png"
     )
     cluster_profile = pd.read_csv(
-        f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
-    cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
+        f"outputs/ml_pipeline/cluster_analysis/v1/clusters_profile.csv")
+    cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/v1/TrainSet.csv")
                         .columns
                         .to_list()
                         )
