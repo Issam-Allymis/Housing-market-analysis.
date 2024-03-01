@@ -235,6 +235,23 @@ I attempted to update my Python version, but that didn't resolve the issue. Addi
 
 ![error](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/6994aee6-ece0-4e93-b91d-06474d1faee7)
 
+**Prospect Marketer, ML: Prospect Sale Price & ML: Cluster Analysis** all display errors as soon as deployed, whereas on my gitpod IDE, all three pages render just fine.
+
+**Heroku**
+![s](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/800c869b-ed2b-424f-b32f-f5a219794096)
+
+![ss](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/24c313c6-14c9-489a-93f1-641866152ba1)
+
+![sss](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/024fda25-3dea-4b52-b932-40331c5390c8)
+
+**GitPod**
+![a](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/1aa20909-edb9-4f72-b598-0593b20c937d)
+
+![aa](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/71166066-9d5c-4fdc-be4a-75c907d0330c)
+
+![aaa](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/9664ffaf-d9f3-440e-ab81-eb135007d7df)
+
+
 
 ## Deployment
 ### Heroku
