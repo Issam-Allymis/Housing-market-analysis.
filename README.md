@@ -49,9 +49,6 @@ To log into the Heroku toolbelt CLI:
 
 You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-## Dataset Content
-* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace. 
-* The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
 
 |Variable|Meaning|Units|
 |:----|:----|:----|
@@ -82,8 +79,6 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 
 
-
-
 ## Business Requirements
 As a good friend, you are requested by your friend, who has received an inheritance from a deceased great-grandfather located in Ames, Iowa, to  help in maximising the sales price for the inherited properties.
 
@@ -94,25 +89,152 @@ Although your friend has an excellent understanding of property prices in her ow
 
 
 ## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them).
+
+### **Hypotheses:**
+
+- **Hypothesis 1:** The size of the lot (LotArea) positively correlates with the sale price (SalePrice) of a house.
+
+- **Hypothesis 2:** Houses with a larger above-ground living area (GrLivArea) tend to have a higher sale price.
+- **Hypothesis 3:** The quality of the kitchen (KitchenQual) positively influences the sale price of a house.
+- **Hypothesis 4:** The presence of a masonry veneer (MasVnrArea) increases the sale price of a house.
+- **Hypothesis 5:** The year of construction (YearBuilt) affects the sale price of a house, with newer houses commanding higher prices.
+
+### **Validating Hypotheses:**
+
+- **Data Exploration and Visualization:** Explore the relationships between the selected variables and the sale price using visualizations such as scatter plots, histograms, and heatmaps.
+
+- **Machine Learning Models:** Train regression models to predict the sale price based on the identified features. Evaluate the models' performance and analyze feature importance.
+**Business Requirements:**
+
+- **Requirement 1:** Identify key features that significantly impact house prices to inform pricing strategies.
+
+- **Requirement 2:** Understand the preferences of homebuyers by analyzing the importance of various features in determining the sale price.
+- **Requirement 3:** Develop predictive models to estimate house prices accurately, facilitating decision-making for buyers, sellers, and real estate investors.
+- **Requirement 4:** Visualize the distribution of house prices and important features to gain insights into market trends and demand.
+
+### **Mapping to Data Visualizations and ML Tasks:**
+
+- **Data Visualizations:**
+    - Scatter plots: to visualize the relationships between numerical features and sale price.
+    - Histograms: to explore the distributions of numerical variables.
+    - Heatmaps: to display correlations between features and identify patterns.
+- **ML Tasks:**
+    - Regression modeling: to predict sale prices based on relevant features.
+    - Feature importance analysis: to determine the most influential factors driving house prices.
+These hypotheses and corresponding analyses aim to provide valuable insights into the elements leading house prices, allowing stakeholders to make calculated decisions which is cruical in the real estate market.
 
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
 
+1. **Predictive Modeling for Property Prices:**
+
+- **Requirement:** Develop machine learning models to predict property prices based on various features such as location, size, amenities, etc.
+
+- **Rationale:** Predicting property prices accurately is crucial for buyers, sellers, and real estate agents to make informed decisions. Machine learning models can utilize historical sales data and property features to provide accurate price estimates.
+
+2. **Identifying Key Factors Affecting Property Prices:**
+
+**Requirement:** Analyze the impact of different factors (e.g., location, square footage, over all condition) on property prices.
+**Rationale:** Understanding the key drivers of property prices helps stakeholders identify lucrative investment opportunities and make data-driven decisions. When it comes to visualizations, the likes of scatter plots, heatmaps, and correlation matrices can highlight the relationships between variables.
 
 ## ML Business Case
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+* Frame the business case using the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, which is a commonly used approach for data mining projects.
+ Here's how I applied it to the business requirement of predicting property prices:
 
+### Business Case Understanding:
+
+- **Business Objective:** Improve the accuracy of predicting housing prices to assist real estate agents and homebuyers in making informed decisions.
+
+- **Key Stakeholders:** Real estate agents, homebuyers, data scientists, business analysts.
+
+### Data Collection:
+- **Data Sources:** Obtain housing market data from public datasets, Kaggle.
+- **Data Description:** Collect information on various features such as square footage, size of the garage, Above grade ground living area, garage finish, year built, sale price, etc.
+- **Data Permissions:** Ensure compliance with data privacy regulations and obtain necessary permissions to use the data.
+- **Data Quality Check:** Assess the quality of the collected data, check for missing values, duplicates, and inconsistencies.
+
+### Data Visualization:
+- **Exploratory Data Analysis (EDA):** Visualize the distribution of housing prices, explore relationships between features, and identify patterns or anomalies.
+- **Feature Importance:** Visualize the importance of different features in predicting housing prices using techniques such as correlation analysis or feature importance plots.
+
+### Model Training:
+- **Model Selection:** Choose appropriate regression models such as Linear Regression, Random Forest, or Gradient Boosting Regression based on the problem complexity and data characteristics.
+- **Data Preprocessing:** Handle missing values, encode categorical variables, and scale numerical features as required.
+- **Model Evaluation:** Split the data into training and testing sets, train the selected models on the training data, and evaluate their performance using metrics like Mean Absolute Error (MAE) or Root Mean Squared Error (RMSE).
+
+### Model Visualization:
+- **Prediction Visualization:** Visualize the predicted housing prices against the actual prices to assess the model's performance visually.
+- **Residual Analysis:** Plot the residuals (the difference between predicted and actual prices) to check for heteroscedasticity and ensure model assumptions are met.
+
+### Model Optimization:
+- **Hyperparameter Tuning:** Use techniques like Grid Search or Random Search to find the optimal hyperparameters for the selected models.
+- **Cross-Validation:** Implement k-fold cross-validation to assess model generalization and reduce overfitting.
+- **Ensemble Methods:** Explore ensemble techniques such as Bagging, Boosting, or Stacking to improve model performance further.
+
+### Model Generation:
+- **Final Model Selection:** Choose the best-performing model based on evaluation metrics and cross-validation results.
+- **Model Persistence:** Train the final model on the entire dataset and save it for future use or deployment.
+
+### Model Deployment:
+- **Integration with Business Systems:** Deploy the trained model into production environments.
+**API Development:** Develop a RESTful API to allow real-time predictions of housing prices based on user input.
+
+### Business Output:
+- **Real-time Price Prediction:** Provide real-time housing price predictions to real estate agents and homebuyers through web or mobile applications.
+- **Informed Decision-Making:** Enable stakeholders to make informed decisions based on accurate predictions, leading to improved property valuation and better investment opportunities.
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
+1. **Overview Page:**
 
+- Summary statistics of the housing market dataset.
+- Distribution plots for key features like sale price, over all quality like the finishing touches of the property, the condition of the house, etc.
+- Map visualization showing housing prices by over all quality.
 
+2. **Feature Analysis Page:**
+
+- Correlation heatmap to visualize relationships between different features.
+- Scatter plots to explore the relationship between sale price and numerical features like year remodel date.
+
+3. **Model Evaluation Page:**
+
+- Performance metrics table displaying evaluation metrics like Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) for different regression models.
+
+4. **Model Interpretation Page:**
+
+- Feature importance plot showing the relative importance of different features in predicting housing prices.
+
+5. Prediction Page:
+
+Input form to enter details of a new property (e.g., square footage, number of bedrooms, location, etc.).
+Button to trigger model prediction and display the predicted sale price.
+Visualization of the predicted price along with confidence intervals if available. **(I faced a significant challenge while working on this project, primarily due to my limited experience in data analytics. Specifically, I encountered an AttributeError indicating that 'Pipeline' has no attribute 'transform'. This error occurred when attempting to execute a function that involved data transformation. Despite my efforts to troubleshoot and resolve the issue, I struggled to find a solution. This experience highlighted the importance of furthering my knowledge and skills in data analytics to overcome similar obstacles in the future.)**
+
+6. **Dashboard Settings Page:**
+- Toggle buttons or checkboxes to show/hide specific plots or widgets based on user preferences.
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+* I faced a significant challenge while working on this project, primarily due to my limited experience in data analytics. Specifically, I encountered an AttributeError indicating that 'Pipeline' has no attribute 'transform'. This error occurred when attempting to execute a function that involved data transformation. Despite my efforts to troubleshoot and resolve the issue, I struggled to find a solution. This experience highlighted the importance of furthering my knowledge and skills in data analytics to overcome similar obstacles in the future.
+
+![unexplainable error](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/1f7b3f67-d0f0-4583-8619-99f378300ec3)
+
+* I encountered an unexpected issue where the presence of the dollar symbol resulted in an unusual font rendering for the text. To address this issue, I opted to prefix the euro symbol to the numerical price figures instead.
+
+![font issue](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/cfa1bd8c-d6c7-4905-9a68-00bfd2408654)
+
+
+
+* I encountered a ValueError during the model evaluation process, specifically while running Notebook 05. The issue arose when the notebook failed to execute smoothly with just one click, however, upon a second click, the remaining functions executed as expected. This error perplexed me, as I couldn't discern why it wasn't functioning properly despite multiple attempts to resolve this issue.
+
+![click twice](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/879d1e08-646f-4764-804c-57b5c9624bb7)
+
+![second click works](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/1eadff7a-d44d-4b8f-9ddf-0e02815704ca)
+
+* I encountered numerous issues while attempting to deploy my project on Heroku. Despite trying various solutions, I found myself constantly facing new errors. Despite my troubleshooting efforts, I couldn't pinpoint why a new error would arise each time.
+
+I attempted to update my Python version, but that didn't resolve the issue. Additionally, I tried downgrading the suggested files, but I still encountered difficulties with the deployment process.
+
+![error](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/6994aee6-ece0-4e93-b91d-06474d1faee7)
+
 
 ## Deployment
 ### Heroku
@@ -129,27 +251,34 @@ Although your friend has an excellent understanding of property prices in her ow
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
 ## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+* **examples of how libraries were used:**
 
+01. scikit-learn is a Python library for machine learning that provides a wide range of tools and algorithms for tasks such as classification, regression, clustering, and dimensionality reduction.
+ 
+02. Importing and using pandas to create and manipulate dataframes.
+03. Importing and using numpy to work with arrays and numerical operations.
+04. Importing and using matplotlib to create visualizations, such as line plots.
+05. Importing and using seaborn to create statistical visualizations, such as bar plots.
+06. Using ProfileReport to display the report in a Jupyter Notebook using profile.to_notebook_iframe().
 
+* **Usage examples**
+01. **Scikit-learn:** Used it to train a linear regression model to predict house prices based on features like number of bedrooms and square footage.
+02. **Pandas:** Used pandas to read in a CSV file containing housing market data and created a dataframe. I then manipulated the dataframe to clean the data, perform exploratory data analysis, and prepared it for machine learning tasks.
+03. **Numpy:** Used numpy to create arrays and perform numerical operations. For example, Used numpy to calculate the mean and standard deviation of housing prices in a dataset.
+04. **Matplotlib:** Used matplotlib to create visualizations such as line plots to show the trend of housing prices over time or scatter plots to visualize the relationship between feature variables and the target sale price variable.
+05. **Seaborn:** Used for visualizing datasets to understand their distributions, relationships between variables, and potential patterns. Additionally, scatterplots can be created using Seaborn.
+06. **ProfileReport:** Used ProfileReport from the pandas_profiling library to generate a comprehensive report on the housing market dataset, including summaries, statistics, and visualizations, all in a Jupyter Notebook environment.
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
-
+* [NeuralNine](https://www.youtube.com/watch?v=Wqmtf9SA_kk); This source helped me grasp the very basics of machine learning.
+* [Code Institute](https://learn.codeinstitute.net/ci_program/diplomainsoftwaredevelopmentpredictiveanalytics); The Data Analysis & Machine Learning Toolkit unit was instrumental in helping me grasp the fundamentals of data analysis and machine learning. However, I acknowledge that I still have a long journey ahead to truly master these concepts.
+* [Ken Jee](https://www.youtube.com/watch?v=NQQ3DRdXAXE); This source opened my eyes on how to approach certain problems in data analytics.
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open Source site
-- The images used for the gallery page were taken from this other open-source site
+- I followed a good portion of Instructions from the Develop and Deploy an A.I. System [Code Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DDA101+2021_T4/courseware/bba260bd5cc14e998b0d7e9b305d50ec/c83c55ea9f6c4e11969591e1b99c6c35/).
 
 
 
 ## Acknowledgements (optional)
-* In case you would like to thank the people that provided support through this project.
+* I'd like to express my heartfelt gratitude to my family and friends for their unwavering support throughout this incredibly challenging project. Additionally, I extend a profound thanks to the [Code Institute](https://codeinstitute.net/ie/full-stack-software-development-diploma/?hsa_acc=8983321581&hsa_cam=14304747355&hsa_grp=1152289077037598&hsa_ad&hsa_src=o&hsa_tgt=kwd-72018717753321%3Aloc-92&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&msclkid=8f56a94a3de213de270fcc99560f89cd&utm_source=bing&utm_medium=cpc&utm_campaign=CI%20-%20IRL%20-%20Search%20-%20Brand&utm_term=code%20institute&utm_content=CI%20-%20IRL%20-%20Search%20-%20Brand%20-%20Exact) for providing invaluable insights and resources that will shape my future development. This journey has truly opened my eyes to a new realm of coding, altering my perspective from when I started to now. Thanks to this course, I've gained clarity on my career path and have made the decision to pursue further education to deepen my understanding. Project 5, focusing on predictive analytics, presented significant challenges, especially considering my lack of prior experience in this domain and the demands of a full-time job. Despite the hurdles, I embraced the opportunity to learn and grow, and I am eager to continue expanding my knowledge in the field.
 
