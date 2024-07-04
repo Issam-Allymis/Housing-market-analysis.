@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
-from src.data_management import load_telco_data, load_pkl_file
+from src.data_management import load_house_prices_data, load_pkl_file
 
 
 def page_cluster_body():
@@ -10,16 +10,16 @@ def page_cluster_body():
     # load cluster analysis files and pipeline
     version = 'v1'
     cluster_pipe = load_pkl_file(
-        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/v1/cluster_pipeline.pkl")
+        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/cluster_analysis/v1/cluster_pipeline.pkl")
     cluster_silhouette = plt.imread(
-        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/v1/clusters_silhouette.png")
+        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/cluster_analysis/v1/clusters_silhouette.png")
     features_to_cluster = plt.imread(
-        f"/workspace/Housing-market-analysis./outputs/ml_pipeline/cluster_analysis/v1/features_define_cluster.png")
+        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/cluster_analysis/v1/features_define_cluster.png")
     heatmapCorr = plt.imread(
-        f"/workspace/Housing-market-analysis./images/heatmapCorr.png"
+        f"C:/Users/issam/Housing-market-analysis.1/images/heatmapCorr.png"
         )
     scatterImg = plt.imread(
-        f"/workspace/Housing-market-analysis./images/numerical_plot.png"
+        f"C:/Users/issam/Housing-market-analysis.1/images/numerical_plot.png"
     )
     cluster_profile = pd.read_csv(
         f"outputs/ml_pipeline/cluster_analysis/v1/clusters_profile.csv")
@@ -29,7 +29,7 @@ def page_cluster_body():
                         )
 
     # dataframe for cluster_distribution_per_variable()
-    df_saleprice_vs_clusters = load_telco_data().filter(['SalePrice'], axis=1)
+    df_saleprice_vs_clusters = load_house_prices_data().filter(['SalePrice'], axis=1)
     df_saleprice_vs_clusters['Clusters'] = cluster_pipe['model'].labels_
 
     st.write("### ML Pipeline: Cluster Analysis")
@@ -118,7 +118,7 @@ def cluster_distribution_per_variable(df, target):
     df_relative = (df
                    .groupby(["Clusters", target])
                    .size()
-                   .groupby(level=0)
+                   .groupby(level=0, group_keys=False)
                    .apply(lambda x:  100*x / x.sum())
                    .reset_index()
                    .sort_values(by=['Clusters'])

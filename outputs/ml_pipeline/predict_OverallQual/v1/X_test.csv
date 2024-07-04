@@ -1,0 +1,4 @@
+1stFlrSF,2ndFlrSF,BedroomAbvGr,BsmtExposure,BsmtFinSF1,BsmtFinType1,BsmtUnfSF,GarageArea,GarageFinish,GarageYrBlt,GrLivArea,KitchenQual,LotArea,LotFrontage,MasVnrArea,OpenPorchSF,OverallCond,OverallQual,TotalBsmtSF,YearBuilt,YearRemodAdd
+1327,0.0,3.0,3.0,405,4.0,658,624,2.0,1974.0,1327,2.0,7388,75.0,0.0,0,6,5,1063,1959,2002
+1040,0.0,2.0,3.0,0,5.0,0,420,2.0,1950.0,1040,3.0,7200,60.0,0.0,29,5,4,0,1950,1950
+729,729.0,2.0,3.0,419,2.0,310,440,2.0,1999.0,1458,3.0,3230,34.0,1129.0,32,5,6,729,1999,1999

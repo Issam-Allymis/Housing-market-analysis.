@@ -9,7 +9,7 @@ def load_telco_data():
     return df"""
 
 @st.cache_data
-def load_telco_data(suppress_st_warning=True, allow_output_mutation=True):
+def load_house_prices_data(suppress_st_warning=True, allow_output_mutation=True):
     df = pd.read_csv("outputs/datasets/collection/house-price-2021.csv") 
     return df
 
