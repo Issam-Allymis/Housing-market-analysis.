@@ -31,7 +31,8 @@ def price_prediction_body():
 
  # Predict prices of inherited houses
     if st.button("Predict inherited houses prices"):
-        inherited_houses = pd.read_csv(f"{current_dir}\inputs\inherited_houses.csv")
+        inherited_houses = pd.read_csv(os.path.join(current_dir, 'inputs', 'inherited_houses.csv'))
+        # inherited_houses = pd.read_csv(f"{current_dir}\inputs\inherited_houses.csv")
         inherited_houses_sorted = inherited_houses.sort_values(by='YearBuilt')
         inherited_houses_prices = saleprice_pipe_model.predict(inherited_houses_sorted) 
         for index in range(len(inherited_houses_prices)):

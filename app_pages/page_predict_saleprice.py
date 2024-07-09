@@ -14,10 +14,10 @@ def price_prediction_body():
     # load needed files
     # os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'clf_pipeline_model.pkl')
     saleprice_pipe_dc_fe = load_pkl_file(
-        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'clf_pipeline_model.pkl'))
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'pipeline_dcfe.pkl'))
     #   f'{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl')
     saleprice_pipe_model = load_pkl_file(
-        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'clf_pipeline_model.pkl'))
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'pipeline_regression.pkl'))
     #   f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl")
     saleprice_feat_importance = plt.imread(
         os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'features_importance.png'))
