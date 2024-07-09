@@ -7,6 +7,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("whitegrid")
+import os
 version = 'v1'
 
 def sale_price_study_body(): 
