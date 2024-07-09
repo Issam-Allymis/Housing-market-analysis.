@@ -3,6 +3,7 @@ from app_pages.multipage import MultiPage
 from src.data_management import log10_transform, power_transform
 import os 
 
+current_dir = os.getcwd()
 os.chdir(os.path.dirname(current_dir))
 
 
