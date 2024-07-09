@@ -1,8 +1,10 @@
 import streamlit as st
+import os 
 
+current_dir = os.getcwd()
 def page_summary_body():
 
-    st.write("### Quick Project Summary")
+    st.write("### Project Overview")
 
     # copied from README file - "Business Requirements" section
     st.success(
@@ -12,7 +14,10 @@ def page_summary_body():
         f"to show that. This objective is delivered in page Sales Price Study.\n"
         f"* 2 - The client is interested in predicting the house sale price from her four inherited houses and "
         f"any other house in Ames, Iowa. This objective is delivered in page Price Prediction."
+        f" {current_dir}"
         )
+
+
 
     # text based on README file - "Dataset Content" section
     st.info(
