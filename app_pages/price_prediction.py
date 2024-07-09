@@ -1,5 +1,6 @@
 import os
 import streamlit as st
+import sklearn
 import pandas as pd
 from src.data_management import load_house_prices_data, load_pkl_file
 from src.machine_learning.predictive_analysis_ui import (
@@ -70,7 +71,10 @@ def price_prediction_body():
 #         f"* There are {len(combined_features)} features for the UI: \n\n {combined_features}")
 
 
+
 def DrawInputsWidgets():
+
+    st.write(sklearn.__version__)
 
     # load dataset
     df = load_house_prices_data()
