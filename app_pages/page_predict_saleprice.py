@@ -3,26 +3,29 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from src.data_management import load_house_prices_data, load_pkl_file
 from src.machine_learning.evaluate_clf import reg_performance
+import os
 
 
-def page_predict_saleprice_body():
+current_dir = os.getcwd()
+
+def price_prediction_body():
 
     version = 'v1'
     # load needed files
     saleprice_pipe_dc_fe = load_pkl_file(
-        f'C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl')
+       f'{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl')
     saleprice_pipe_model = load_pkl_file(
-        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl")
+       f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl")
     saleprice_feat_importance = plt.imread(
-        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/features_importance.png")
+       f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/features_importance.png")
     X_train = pd.read_csv(
-        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/X_train.csv")
+       f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/X_train.csv")
     X_test = pd.read_csv(
-        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/X_test.csv")
+        f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/X_test.csv")
     y_train = pd.read_csv(
-        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/y_train.csv").values
+        f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/y_train.csv").values
     y_test = pd.read_csv(
-        f"C:/Users/issam/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/y_test.csv").values 
+        f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/y_test.csv").values 
 
     st.write("### ML Pipeline: Predict Prospect SalePrice")
     # display pipeline training summary conclusions
