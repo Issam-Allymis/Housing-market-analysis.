@@ -24,7 +24,7 @@ def power_transform(x, power=1.5):
 
 @st.cache_data
 def load_house_prices_data(suppress_st_warning=True, allow_output_mutation=True):
-    df = pd.read_csv("inputs\housing-prices-data\house_prices_records.csv") 
+    df = pd.read_csv("/inputs/housing-prices-data/house_prices_records.csv") 
     return df
 
 
