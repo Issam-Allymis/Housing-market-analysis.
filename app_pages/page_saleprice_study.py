@@ -61,7 +61,8 @@ def sale_price_study_body():
 
     if st.button("Feature Importance chart"):    
         # Load the image of feature importance plot
-        image_path = f'outputs/ml_pipeline/predict_saleprice/{version}/features_importance.png'
+        image_path = os.path.join('outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'features_importance.png')
+        # image_path = f'outputs/ml_pipeline/predict_saleprice/{version}/features_importance.png'
         image = Image.open(image_path)
         image.show()
 

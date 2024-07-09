@@ -12,20 +12,28 @@ def price_prediction_body():
 
     version = 'v1'
     # load needed files
+    # os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'clf_pipeline_model.pkl')
     saleprice_pipe_dc_fe = load_pkl_file(
-       f'{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl')
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'clf_pipeline_model.pkl'))
+    #   f'{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl')
     saleprice_pipe_model = load_pkl_file(
-       f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl")
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'clf_pipeline_model.pkl'))
+    #   f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/clf_pipeline_model.pkl")
     saleprice_feat_importance = plt.imread(
-       f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/features_importance.png")
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'features_importance.png'))
+    #   f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/features_importance.png")
     X_train = pd.read_csv(
-       f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/X_train.csv")
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'X_train.csv'))
+    #   f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/X_train.csv")
     X_test = pd.read_csv(
-        f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/X_test.csv")
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'X_test.csv'))
+    #    f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/X_test.csv")
     y_train = pd.read_csv(
-        f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/y_train.csv").values
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'y_train.csv'))
+    #    f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/y_train.csv").values
     y_test = pd.read_csv(
-        f"{current_dir}/Housing-market-analysis.1/outputs/ml_pipeline/predict_saleprice/{version}/y_test.csv").values 
+        os.path.join(current_dir, 'outputs', 'ml_pipeline', 'predict_saleprice', 'v1', 'y_test.csv'))
+    #    f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/y_test.csv").values 
 
     st.write("### ML Pipeline: Predict Prospect SalePrice")
     # display pipeline training summary conclusions
