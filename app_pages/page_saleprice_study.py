@@ -3,11 +3,11 @@ import numpy as np
 from feature_engine.discretisation import ArbitraryDiscretiser
 import streamlit as st
 from src.data_management import load_house_prices_data, log10_transform
-
+from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("whitegrid")
-
+version = 'v1'
 
 def sale_price_study_body(): 
 
@@ -37,7 +37,7 @@ def sale_price_study_body():
         f"the sale price of a property or identify properties with the potential for price appreciation."
     )
 
-    st.write("### Results")
+    st.write("### Hypothesis validation")
 
     
 
@@ -58,13 +58,12 @@ def sale_price_study_body():
     f"* A higher saleprice is typically associated with the more recent construction dates **['YearBuilt']**.\n"
     )
 
-    # inspect data
-    if st.button("Inspect Customer Base"):
-        st.write(
-            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
-            f"find below the first 10 rows.")
 
-        st.write(df.head(10))
+    if st.button("Feature Importance chart"):    
+        # Load the image of feature importance plot
+        image_path = f'outputs/ml_pipeline/predict_saleprice/{version}/features_importance.png'
+        image = Image.open(image_path)
+        image.show()
 
 
     # Code copied from "02 - PredictingSalePrice" notebook code - "EDA on selected variables" section
@@ -74,8 +73,8 @@ def sale_price_study_body():
     
     if st.button("SalePrice Levels per Variable"):
         st.write(
-            f"* Evidentally, properties which span over  greater land mass "
-            f"and that are kept well tend to cost more, the year "
+            f"* Evidently, properties which span over greater foot print "
+            f"and that are kept well tend to cost more. The year "
             f"during which the houses were built in does matter but the " 
             f"OverallQual feature seems to have a higher precedence over other features. "
         )
@@ -89,6 +88,14 @@ def sale_price_study_body():
             f"with lower Sale Price levels.")
         parallel_plot_saleprice(df_eda)
         plot_yearbuilt(df_eda)
+
+        # inspect data
+    if st.button("Inspect Customer Base"):
+        st.write(
+            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
+            f"find below the first 10 rows.")
+
+        st.write(df.head(10))
 
 
 # function created using "02 - PredictingSalePrice" notebook code - "Variables Distribution by SalePrice" section

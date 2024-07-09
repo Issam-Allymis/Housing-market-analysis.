@@ -207,56 +207,22 @@ These hypotheses and corresponding analyses aim to provide valuable insights int
 
 Input form to enter details of a new property (e.g., square footage, number of bedrooms, location, etc.).
 Button to trigger model prediction and display the predicted sale price.
-Visualization of the predicted price along with confidence intervals if available. **(I faced a significant challenge while working on this project, primarily due to my limited experience in data analytics. Specifically, I encountered an AttributeError indicating that 'Pipeline' has no attribute 'transform'. This error occurred when attempting to execute a function that involved data transformation. Despite my efforts to troubleshoot and resolve the issue, I struggled to find a solution. This experience highlighted the importance of furthering my knowledge and skills in data analytics to overcome similar obstacles in the future.)**
+Visualization of the predicted price along with confidence intervals if available.
 
 6. **Dashboard Settings Page:**
 - Toggle buttons or checkboxes to show/hide specific plots or widgets based on user preferences.
 
 ## Unfixed Bugs
-* I faced a significant challenge while working on this project, primarily due to my limited experience in data analytics. Specifically, I encountered an AttributeError indicating that 'Pipeline' has no attribute 'transform'. This error occurred when attempting to execute a function that involved data transformation. Despite my efforts to troubleshoot and resolve the issue, I struggled to find a solution. This experience highlighted the importance of furthering my knowledge and skills in data analytics to overcome similar obstacles in the future.
 
-![unexplainable error](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/1f7b3f67-d0f0-4583-8619-99f378300ec3)
+* My model had a certain amount of overfitting, i attempted to modify the preprocessor transformers and the matters improved in the final model before deployed to production.
 
-* I encountered an unexpected issue where the presence of the dollar symbol resulted in an unusual font rendering for the text. To address this issue, I opted to prefix the euro symbol to the numerical price figures instead.
-
-![font issue](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/cfa1bd8c-d6c7-4905-9a68-00bfd2408654)
-
-
-
-* I encountered a ValueError during the model evaluation process, specifically while running Notebook 05. The issue arose when the notebook failed to execute smoothly with just one click, however, upon a second click, the remaining functions executed as expected. This error perplexed me, as I couldn't discern why it wasn't functioning properly despite multiple attempts to resolve this issue.
-
-![click twice](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/879d1e08-646f-4764-804c-57b5c9624bb7)
-
-![second click works](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/1eadff7a-d44d-4b8f-9ddf-0e02815704ca)
-
-* I encountered numerous issues while attempting to deploy my project on Heroku. Despite trying various solutions, I found myself constantly facing new errors. Despite my troubleshooting efforts, I couldn't pinpoint why a new error would arise each time.
-
-I attempted to update my Python version, but that didn't resolve the issue. Additionally, I tried downgrading the suggested files, but I still encountered difficulties with the deployment process.
-
-![error](https://github.com/Issam-Allymis/housing-market-analysis/assets/126810074/6994aee6-ece0-4e93-b91d-06474d1faee7)
-
-**Prospect Marketer, ML: Prospect Sale Price & ML: Cluster Analysis** all display errors as soon as deployed, whereas on my gitpod IDE, all three pages render just fine.
-
-**Heroku**
-![s](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/800c869b-ed2b-424f-b32f-f5a219794096)
-
-![ss](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/24c313c6-14c9-489a-93f1-641866152ba1)
-
-![sss](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/024fda25-3dea-4b52-b932-40331c5390c8)
-
-**GitPod**
-![a](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/1aa20909-edb9-4f72-b598-0593b20c937d)
-
-![aa](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/71166066-9d5c-4fdc-be4a-75c907d0330c)
-
-![aaa](https://github.com/Issam-Allymis/Housing-market-analysis.1/assets/126810074/9664ffaf-d9f3-440e-ab81-eb135007d7df)
-
+* Many of the graphics that could've been displayed in the dashboard haven't been included but are included in the notebooks.
 
 
 ## Deployment
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
+* The App live link is: https://housingmarket-51bd98038f4c.herokuapp.com/ 
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 

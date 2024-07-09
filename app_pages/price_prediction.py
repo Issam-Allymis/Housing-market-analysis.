@@ -14,10 +14,10 @@ def price_prediction_body():
     # load predict saleprice files
     version = 'v1'
     saleprice_pipe_model = load_pkl_file(
-        f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/pipeline_dcfe.pkl")
+        f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/pipeline_regression.pkl")
 
     saleprice_pipe_dc_fe = load_pkl_file(
-        f'{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/pipeline_regression.pkl')
+        f'{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/pipeline_dcfe.pkl')
     
     saleprice_features = (pd.read_csv(f"{current_dir}/outputs/ml_pipeline/predict_saleprice/{version}/X_train.csv")
                       .columns
@@ -29,34 +29,44 @@ def price_prediction_body():
     
     st.write("---")
 
-    st.info(
-      )
+ # Predict prices of inherited houses
+    if st.button("Predict inherited houses prices"):
+        inherited_houses = pd.read_csv(f"{current_dir}\inputs\inherited_houses.csv")
+        inherited_houses_sorted = inherited_houses.sort_values(by='YearBuilt')
+        inherited_houses_prices = saleprice_pipe_model.predict(inherited_houses_sorted) 
+        for index in range(len(inherited_houses_prices)):
+            price = inherited_houses_prices[index]
+            YearBuilt = inherited_houses_sorted.at[index, 'YearBuilt']
+            st.write(f"The price of the house built in {YearBuilt} is around {price}.")
+            
 
     # Generate Live Data
     # check_variables_for_UI(saleprice_features, cluster_features)
     X_live = DrawInputsWidgets()
 
+
     # predict on live data
     if st.button("Run Predictive Analysis"):
-        saleprice_prediction = predict_saleprice(
-            X_live, saleprice_features, saleprice_pipe_model, saleprice_pipe_dc_fe)
+        saleprice_prediction = saleprice_pipe_model.predict(X_live)
+        st.write(f"The price of this house is around {saleprice_prediction}")
+        
 
-        predict_cluster(X_live, cluster_features,
-                        cluster_pipe, cluster_profile)
+        # predict_cluster(X_live, cluster_features,
+        #                 cluster_pipe, cluster_profile)
 
 
-def check_variables_for_UI(saleprice_features, cluster_features):
-    import itertools
+# def check_variables_for_UI(saleprice_features, cluster_features):
+#     import itertools
 
-    # The widgets inputs are the features used in all pipelines (saleprice, cluster)
-    # We combine them only with unique values
-    combined_features = set(
-        list(
-            itertools.chain(saleprice_features, cluster_features)
-        )
-    )
-    st.write(
-        f"* There are {len(combined_features)} features for the UI: \n\n {combined_features}")
+#     # The widgets inputs are the features used in all pipelines (saleprice, cluster)
+#     # We combine them only with unique values
+#     combined_features = set(
+#         list(
+#             itertools.chain(saleprice_features, cluster_features)
+#         )
+#     )
+#     st.write(
+#         f"* There are {len(combined_features)} features for the UI: \n\n {combined_features}")
 
 
 def DrawInputsWidgets():
@@ -270,19 +280,22 @@ def DrawInputsWidgets():
 
    # Create a vertical layout for each feature
     features = ['BsmtFinSF1', 'YearBuilt', 'BsmtUnfSF', 
-    'GarageArea', 'GrLivArea', 'BsmtExposure', 'LotFrontage', 
-    'MasVnrArea', 'OpenPorchSF', 'OverallQual', 'KitchenQual', 
-    'GarageYrBlt', 'OverallCond', 'BedroomAbvGr', '1stFlrSF', 
-    '2ndFlrSF']
+        'GarageArea', 'GrLivArea', 'BsmtExposure', 
+        'LotFrontage', 'MasVnrArea', 'OpenPorchSF', 
+        'KitchenQual', 'OverallQual', 'OverallCond', 
+        'GarageYrBlt', 'BedroomAbvGr', '1stFlrSF', '2ndFlrSF']
 
     for feature in features:
-        if df[feature].dtype == 'object':
+        # st.write(f"feature_type_for_{feature} is {df[feature].dtype}")
+        options = sorted(df[feature].astype(str).unique())
+        if df[feature].dtype in ['object', 'category']:
             st_widget = st.selectbox(
                 label=feature,
-                options=sorted(df[feature].unique())
+                # options=sorted(df[feature].unique())
+                options=options
             )
         elif df[feature].dtype in ['int64', 'float64']:
-            if len(df[feature].unique()) < 20:  # Arbitrary threshold for using selectbox
+            if len(df[feature].unique().tolist()) < 20 :  # Arbitrary threshold for using selectbox
                 st_widget = st.selectbox(
                     label=feature,
                     options=sorted(df[feature].unique())
