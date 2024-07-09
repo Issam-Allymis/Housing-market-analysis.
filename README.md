@@ -166,6 +166,7 @@ Visualization of the predicted price along with confidence intervals if availabl
 
 * Many of the graphics that could've been displayed in the dashboard haven't been included but are included in the notebooks.
 
+* On the Sale Price study page, the feature importance chart isn't responding well, whereas in my local environment, everything within the app seems to be working perfectly.
 
 ## Deployment
 ### Heroku

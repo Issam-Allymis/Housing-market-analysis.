@@ -142,6 +142,7 @@ def plot_numerical(df, col, target_var, max_labels=5):
     plt.title(f"{col}", fontsize=20, y=1.10)
     st.pyplot(fig)  # st.pyplot() renders image, in notebook is plt.show()
 
+    
 
 # function created using ""02 - PredictingSalePrice" notebook code - Parallel Plot section
 def parallel_plot_saleprice(df_eda):
